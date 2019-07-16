@@ -19,9 +19,29 @@ node = Node('root', Node('left', Node('left.left')), Node('right'))
 assert deserialize(serialize(node)).left.left.val == 'left.left
 */
 
+class Node {
+  constructor(value, left=0, right=0) {
+    this.value = value;
+    this.left = left;
+    this.right = right;
+  }
+}
 
+var node = new Node('root', new Node('left', new Node('left-left'), new Node('right')));
+console.log('node = ', node);
+
+
+
+// const serialize = (root) => {
+//
+// };
+//
+// const deserialize = (root) => {
+//
+// };
 
 $(document).ready(function() {
-  $('#output-section-1').text('test1');
+  $('#output-section-1').text(JSON.stringify(node));
   $('#output-section-2').text('test2');
+  $('#output-section-3').text('test3');
   });
