@@ -30,18 +30,24 @@ class Node {
 var node = new Node('root', new Node('left', new Node('left-left'), new Node('right')));
 console.log('node = ', node);
 
+const serialize = (root) => {
+  return JSON.stringify(root);
+};
 
+const deserialize = (stringOfObjects) => {
+  return JSON.parse(stringOfObjects);
+};
 
-// const serialize = (root) => {
-//
-// };
-//
-// const deserialize = (root) => {
-//
-// };
+var fancyString = '{"value":"root","left":{"value":"left","left":{"value":"left-left","left":0,"right":0},"right":{"value":"right","left":0,"right":0}},"right":0}';
+
+deString = deserialize(fancyString);
+
+console.log('fancyString =', fancyString);
+console.log('deString =', deString);
 
 $(document).ready(function() {
-  $('#output-section-1').text(JSON.stringify(node));
-  $('#output-section-2').text('test2');
-  $('#output-section-3').text('test3');
+  $('#output-section-1').text(node);
+  $('#output-section-2').text(serialize(node));
+  $('#output-section-3').text(deserialize(serialize(node)));
+  $('#output-section-4').text(deserialize(fancyString));
   });
